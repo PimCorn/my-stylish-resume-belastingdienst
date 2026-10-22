@@ -6,25 +6,19 @@
     <title>Pim Cornelder | Curriculum Vitae</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Paginamarges bij printen/pdf: ruimte boven en onder op elke pagina,
-           ook als een blok doorloopt op de volgende pagina */
-        @page {
-            size: A4;
-            margin: 14mm 0 12mm 0;
-        }
-        @page :first {
-            margin-top: 0;
-        }
+        @page { size: A4; margin: 0; }
         @media print {
-            html, body {
-                background: #F4EDE1 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            h3, h4, .job-head { break-after: avoid; page-break-after: avoid; }
-            li, .plain-list li { break-inside: avoid; page-break-inside: avoid; }
+            h3 { break-after: avoid; page-break-after: avoid; }
             .skills-tags, .plain-list { break-inside: avoid; page-break-inside: avoid; }
-            p { orphans: 3; widows: 3; }
+            /* Een kaart die over twee pagina's loopt, krijgt op de nieuwe pagina opnieuw zijn binnenruimte */
+            .card {
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+            }
+            /* Ruimte tussen functies als binnenruimte, zodat die blijft staan als een functie naar een nieuwe pagina schuift */
+            .job { margin-bottom: 0; }
+            .job + .job { padding-top: 18px; }
+            .job + .job::before { top: 23px; }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
