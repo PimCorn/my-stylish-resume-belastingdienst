@@ -6,9 +6,25 @@
     <title>Pim Cornelder | Curriculum Vitae</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Paginamarges bij printen/pdf: ruimte boven en onder op elke pagina,
+           ook als een blok doorloopt op de volgende pagina */
+        @page {
+            size: A4;
+            margin: 14mm 0 12mm 0;
+        }
+        @page :first {
+            margin-top: 0;
+        }
         @media print {
-            h3 { break-after: avoid; page-break-after: avoid; }
+            html, body {
+                background: #F4EDE1 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            h3, h4, .job-head { break-after: avoid; page-break-after: avoid; }
+            li, .plain-list li { break-inside: avoid; page-break-inside: avoid; }
             .skills-tags, .plain-list { break-inside: avoid; page-break-inside: avoid; }
+            p { orphans: 3; widows: 3; }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +42,7 @@
                 <p class="eyebrow">Curriculum Vitae</p>
                 <h1>Pim Cornelder</h1>
                 <h2>Klantgericht en zorgvuldig &mdash; achtergrond in operationeel management, ERP en gebruikersondersteuning</h2>
-                <p class="credentials">MBO-4 ICT Webdevelopment &middot; HBO Propedeuse Industrieel Product Ontwerp</p>
+                <p class="credentials">MBO-4 ICT Webdevelopment &amp; Media Design &middot; HBO Propedeuse Industrieel Product Ontwerp</p>
                 <p class="contact-info">Arnhem &middot; 06 575 626 46 &middot; pim.cornelder@outlook.com</p>
             </div>
         </div>
